@@ -1,0 +1,100 @@
+1. Configuring your React Application
+    
+    => How to create React
+        > first install nodejs
+        > check the command prompt node version and npm version
+        > install yarn => npm install -g yarn or go to yarn website and search the npm install command
+        > install react => go to react site and search command to create react app 
+
+    => Need Package
+        > install: 1. reactstrap    => yarn add bootstrap@4.0.0
+                   2. bootstrap 4   => yarn add reactstrap@5.0.0
+                   3. react-popper  => yarn add react-popper@0.9.2
+                   4. font-awesome  => yarn add font-awesome@4.7.0
+                   5. bootstrap-social  => yarn add bootstrap-social@5.1.1
+
+-------------------------------------------------------------------------------------------------------------------
+
+2. React Component LifeCycle
+
+    => LifeCycle stages
+        > Mounting
+        > Updating
+        > Unmounting
+
+        => Mounting LifeCycle Methods
+            > constructor()
+            > getDerivedStateFromProps()
+            > render()              =>“Render phase” Pure and has no side effects. May be paused, aborted or restarted by React.
+            > componentDidMount()   =>“Commit phase” Can work with DOM, run side effects, schedule updates.
+
+            The render() function should be pure, meaning that it does not modify component state, it returns the same result each time it’s invoked, and it does not directly interact with the browser.
+
+            If you need to interact with the browser, perform your work in componentDidMount() or the other lifecycle methods instead. Keeping render() pure makes components easier to think about. 
+
+        => Updating LifeCycle Methods
+            > getDerivedStateFromProps()
+            > shouldComponentUpdate()
+            > render()
+            > getSnapshotBeforeUpdate()
+            > componentDidUpdate()
+
+--------------------------------------------------------------------------------------------------------------------
+
+3. React Components
+
+    => Class Component
+        > Extend React.Component to get class component
+            > import React, {Component} from './react'
+        > Need to impletement the render() method that return the view
+        > Can have local state
+        > LifeCycle hooks
+    ==> view example "MainComponent.js"
+
+    => Functional Component
+        > Simplest way to define React components
+        > Javascript function that returns a React element, or a collection of react elements that define the view
+        > Receive a "props" object as a parameter
+        > Cannot have local state or access lifecycle hooks
+    ==> view example "MenuComponent.js" and "DishdetailComponent.js"
+
+--------------------------------------------------------------------------------------------------------------------
+
+4. React Virtual DOM
+
+    =>Virtual DOM is a React object
+        > lightweight representation of the browser DOM
+        > In-memory tree data structure of plain js objects
+        > Manipulations extremely fast compared to modifying the browser DOM
+        > Created completely from scratch on every setstate
+
+    => Updating the DOM
+        => Diffing algorithm
+            > Updates the entire sub-tree if diffing detects that two elements are of different types
+            > Using "key" you can hint child elements as stable
+                > no need to re-render where keys do not change
+
+        => React Fiber: new reconciliation algorithm in react 16
+            >incremental rendering
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+=> Other Notes
+
+        // state => each component can store its own local info: in its 'state'
+        // only class component can have local state
+        
+        // JSX attributes are passed into a component as a single object
+        //// available in the component as 'props'
+        //// can pass multiple attributes
+        //// cannot modify props within the component
+        
+        // The map() method creates a new array with the results of calling a function for every array element.
+
+        // The map() method calls the provided function once for each element in an array, in order.
+
+        // Note: map() does not execute the function for array elements without values.
+
+        // to pass data from parent component to child component , use 'props'        
